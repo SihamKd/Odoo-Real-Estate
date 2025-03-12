@@ -1,0 +1,98 @@
+<odoo>
+    <!-- Report Action -->
+    <record id="property_report" model="ir.actions.report">
+        <field name="name">Property Report</field>
+        <field name="model">property</field>
+        <field name="report_type">qweb-html</field> <!-- qweb-pdf, qweb-html, text, or csv -->
+        <field name="binding_model_id" ref="model_property"/>
+        <field name="binding_type">report</field>
+        <field name="report_name">app_one.property_report_template</field>
+    </record>
+
+    <!-- Property Report Template -->
+    <template id="property_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="rec">
+                    <h1>Property Report</h1>
+                    <style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        background-color: #ffffff;
+    }
+    th, td {
+        border: 1px solid #e0e0e0;
+        padding: 12px 15px;
+        text-align: left;
+    }
+    th {
+        background-color: #f8f9fa;
+        color: #2c3e50;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+    td {
+        color: #34495e;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+    thead th {
+        border-bottom: 2px solid #ddd;
+    }
+</style>
+
+                    <table>
+                        <thead>
+                            <th colspan="4">General Information</th>
+                        </thead>
+                        <tbody>
+                            <td>Name</td>
+                            <td><t t-esc="rec.name"/></td>
+                            <td>Postcode</td>
+                            <td><t t-esc="rec.postcode"/></td>
+                        </tbody>
+
+                        <thead>
+                            <th colspan="4">Addionnal Information</th>
+                        </thead>
+                        <tbody>
+                            <td>Owner</td>
+                            <td><t t-esc="rec.owner_id.name"/></td> <!--method 3 without using .name directly will display the name <td><span t-esc="rec.owner_id"/></td> -->
+                            <td>Phone</td>
+                            <td><t t-esc="rec.owner_phone"/></td>
+                        </tbody>
+                    </table>
+                    <br/>
+                <table>
+                <thead>
+                    <th>Description</th>
+                    <th>Area(m2)</th>
+                </thead>
+                <tbody>
+                    <t t-foreach="rec.Line_ids" t-as="line"></t>
+                    <tr>
+                    <td>
+                        <span t-field="line.description"/> <!-- Display the description  method 2-->
+                    </td>
+                    <td>
+                    <t t-esc="line.area"/>
+                    </td>
+                    </tr>
+                    
+                    
+                </tbody>
+                </table>
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
