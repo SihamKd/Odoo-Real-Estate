@@ -1,0 +1,86 @@
+/* Custom Property ListView Table Styling */
+
+
+
+.o_list_view {
+    padding: 24px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    height: 400px !important;         
+    overflow: auto !important;
+    scrollbar-width: thin;
+    scrollbar-color: #2a4d69 #e3e7ed;
+}
+
+/* Custom scrollbar for webkit browsers */
+.o_list_view::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.o_list_view::-webkit-scrollbar-track {
+    background: #e3e7ed;
+    border-radius: 10px;
+}
+
+.o_list_view::-webkit-scrollbar-thumb {
+    background: #2a4d69;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.o_list_view::-webkit-scrollbar-thumb:hover {
+    background: #1e3550;
+}
+
+.o_list_view::-webkit-scrollbar-corner {
+    background: #e3e7ed;
+}
+
+.o_list_table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+.o_list_table th,
+.o_list_table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.o_list_table th.o_list_column_header {
+    background: #e3e7ed;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #bfc8d8;
+}
+
+.o_list_table tr:last-child td {
+    border-bottom: none;
+}
+
+.o_list_table tr:hover {
+    background: #f1f3f6;
+    transition: background 0.2s;
+}
+
+.o_list_table td {
+    color: #444;
+    font-size: 15px;
+}
+
+.o_list_table td:first-child {
+    font-weight: 500;
+    color: #2a4d69;
+}

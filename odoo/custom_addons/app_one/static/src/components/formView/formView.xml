@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="app_one.FormView">
+        <div class="p-3">
+            <div class="o_field_widget mb-3">
+                <label for="name" class="o_form_label">Name</label>
+                <input type="text" class="o_input_form_control" id="name" t-model="state.name" placeholder ="Enter Property Name"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="postcode" class="o_form_label">PostCode</label>
+                <input type="text" class="o_input_form_control" id="postcode" t-model="state.postcode" placeholder ="Enter Property PostCode"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="date_availability" class="o_form_label">Date Availability</label>
+                <input type="date" class="o_input_form_control" id="date_availability" t-model="state.date_availability" placeholder ="Enter Date Availability"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="o_form_label">Description</label>
+                <input type="text" class="o_input_form_control" id="description" t-model="state.description" placeholder ="Enter Property description"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="bedrooms" class="o_form_label">Bedrooms</label>
+                <input type="text" class="o_input_form_control" id="bedrooms" t-model="state.bedrooms" placeholder ="Enter Date Availability"/>
+            </div>
+
+            <div class="footer">
+                <button class="btn btn-primary me-2" t-on-click="this.createRecord">Save</button>
+                <button class="btn btn-secondary" t-on-click="this.cancel">Cancel</button>
+            </div>
+        
+        </div>
+        
+    </t>
+</templates>

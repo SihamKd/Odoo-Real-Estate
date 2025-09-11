@@ -1,0 +1,129 @@
+/* Container styling */
+.p-3 {
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    max-width: 500px;
+    max-height: 400px !important; /* Reduced height to force scrolling */
+    margin: 0 auto;
+    padding: 32px 24px;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #2a4d69 #e3e7ed;
+}
+
+/* Custom scrollbar for webkit browsers */
+.p-3::-webkit-scrollbar {
+    width: 6px;
+}
+
+.p-3::-webkit-scrollbar-track {
+    background: #e3e7ed;
+    border-radius: 6px;
+}
+
+.p-3::-webkit-scrollbar-thumb {
+    background: #2a4d69;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.p-3::-webkit-scrollbar-thumb:hover {
+    background: #1e3550;
+}
+
+/* Additional specific targeting for form containers */
+div.p-3,
+.app_one-form-container {
+    max-height: 400px !important;
+    overflow-y: auto !important;
+}
+
+/* Force scrollbar visibility */
+.p-3::-webkit-scrollbar {
+    width: 8px !important;
+    -webkit-appearance: none;
+}
+
+/* Test content to ensure scrolling */
+.scrollbar-test {
+    height: 200px;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(42, 77, 105, 0.1) 10px,
+        rgba(42, 77, 105, 0.1) 20px
+    );
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+/* Label styling */
+.o_form_label {
+    font-weight: 600;
+    color: #2a4d69;
+    margin-bottom: 6px;
+    display: block;
+    font-size: 15px;
+}
+
+/* Input styling */
+.o_input_form_control {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #bfc8d8;
+    border-radius: 6px;
+    font-size: 15px;
+    background: #fff;
+    margin-bottom: 4px;
+    transition: border-color 0.2s;
+}
+
+.o_input_form_control:focus {
+    border-color: #2a4d69;
+    outline: none;
+}
+
+/* Field widget spacing */
+.o_field_widget.mb-3,
+.mb-3 {
+    margin-bottom: 18px !important;
+}
+
+/* Footer buttons */
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.btn-primary {
+    background: #2a4d69;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #1e3550;
+}
+
+.btn-secondary {
+    background: #e3e7ed;
+    border: none;
+    color: #2a4d69;
+    font-weight: 500;
+    padding: 8px 20px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #bfc8d8;
+}

@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(\app_one\static\src\fonts\RobotoSlab-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Samble';
+    src: url(\app_one\static\src\fonts\samble.ttf);
+}
