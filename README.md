@@ -199,7 +199,7 @@ Content-Type: application/json
 }
 ```
 
-## 📸 Screenshots
+<!-- ## 📸 Screenshots
 
 ### Property List View
 ![Property List View](screenshots/property-list.png)
@@ -213,7 +213,7 @@ Content-Type: application/json
 ![Dashboard](screenshots/dashboard.png)
 *Real-time analytics and reporting dashboard*
 
-> **Note**: Screenshots will be added to the `screenshots/` folder in the repository.
+> **Note**: Screenshots will be added to the `screenshots/` folder in the repository. -->
 
 ## 📈 Features Highlights
 
