@@ -5,6 +5,11 @@
         <field name="model">property</field>
         <field name="arch" type="xml">
             <tree class="header_custom" decoration-danger="is_late == True">
+                <header>
+                    <button name="property_xlsx_report" type="object" string="Print Excel Report"
+                    class= "btn-primary"/>  
+                </header>
+                    
                 <field name="name" />
                 <field name="postcode" />
                 <field name="is_late" invisible="True" />
@@ -28,9 +33,21 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <div name="button_box" class="oe_button_box">
+                        <button name="action_open_related_owner" type="object" 
+                            icon="fa-user" string="Owner" 
+                            invisible="not owner_id" />
+                        
+                    </div>
+
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/> <!-- ribbon -->
+                    <widget name="web_ribbon" title="Sold" bg_color="text-bg-success" invisible="state !='sold'"/> <!-- ribbon -->
+                    
                     <header>
                         <button name="action" type="object" class="btn-primary"
                             string="Action"/>
+                            <button name="get_properties" type="object" class="btn-primary"
+                            string="Call Get Properties"/>
                         <button name="action_draft" type="object" class="btn-primary"
                             string="Set TO Draft"
                             invisible="state in ('draft','closed')" />
@@ -183,4 +200,18 @@
         parent="properties_menu"
         action="property_action"
     />
+
+    <record id="list_view_action" model="ir.actions.client">
+        <field name="name">Property List View</field>
+        <field name="tag">app_one.action_list_view</field>
+
+    </record>
+
+    <menuitem
+        id="property_list_view_menu_item"
+        name="Properties OWL"
+        parent="properties_menu"
+        action="list_view_action"
+    />
+
 </odoo>

@@ -1,6 +1,7 @@
 from odoo import models,fields,api
 from odoo.exceptions import ValidationError
 from datetime import timedelta
+import requests
 
 class Property(models.Model):
     _name = 'property'
@@ -9,7 +10,7 @@ class Property(models.Model):
 
 
     ref = fields.Char(default= "New", readonly=True)
-    name = fields.Char(required=True, default="New",size=10)
+    name = fields.Char(required=True, default="New",size=50 , translate=True)
     description = fields.Text(tracking=True)
     postcode = fields.Char(required=True)
     date_availability = fields.Date(tracking=True)
@@ -145,7 +146,37 @@ class Property(models.Model):
             'default_property_id': self.id,
         }
         return action
-
+    
+    def action_open_related_owner(self):
+        action = self.env['ir.actions.actions']._for_xml_id('app_one.owner_action')
+        view_id = self.env.ref('app_one.owner_view_form').id
+        action['res_id'] = self.owner_id.id
+        action['views'] = [(view_id, 'form')]
+        return action
+    
+    #Autre methode pour ouvrir la vue owner
+    # def action_open_related_owner(self):
+    #     action = self.env['ir.actions.act_window']._for_xml_id('app_one.owner_action')
+    #     action['domain'] = [('id','=',self.owner_id.id)]
+    #     return action
+    def get_properties(self):
+        payload = dict()
+        try:
+            response = requests.get('http://laptop-o56l8tna:8069/v1/properties', data=payload)
+            if response.status_code == 200:
+                print("Properties fetched successfully:")
+            else:
+                print("Failed")    
+        except Exception as error:
+            raise ValidationError(str(error))
+        
+    def property_xlsx_report(self):
+        return {
+            'type': 'ir.actions.act_url',
+            'url': f'/property/excel/report/{self.env.context.get("active_ids")}',
+            'target': 'new',
+        }
+        
 
 """ to comment or #
      @api.model_create_multi
@@ -174,6 +205,9 @@ class Property(models.Model):
         print("Deleted successfully")
         return res
 """
+
+
+    
 
 class PropertyLine(models.Model):
     _name = 'property.line'

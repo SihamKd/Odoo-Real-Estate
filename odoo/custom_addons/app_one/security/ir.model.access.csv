@@ -1,6 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_property_manager,access.property,model_property,app_one.property_manager_group,1,1,1,1
-access_property_user,access.property,model_property,,1,0,0,0
+access_property_manager,access.property,model_property,,1,1,1,1
 access_owner,access.owner,model_owner,,1,1,1,1
 access_tag,access.tag,model_tag,,1,1,1,1
 access_client,access_client,model_client,base.group_user,1,1,1,1
